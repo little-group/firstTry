@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "webpack-dev-server --port=4200",
-    "build": "webpack --optimize-minimize",
+    "build": "webpack --optimize-minimize --env=prod",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
@@ -43,6 +43,7 @@
     "base-href-webpack-plugin": "^1.0.2",
     "circular-dependency-plugin": "^3.0.0",
     "codelyzer": "~3.1.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
     "cssnano": "^3.10.0",
     "exports-loader": "^0.6.3",
