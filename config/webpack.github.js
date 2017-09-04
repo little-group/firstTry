@@ -1,6 +1,7 @@
 let webpackMerge = require('webpack-merge');
 let commonConfig = require('./webpack.common.js');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin'); // Or `import 'base-href-webpack-plugin';` if using typescript
@@ -21,6 +22,10 @@ module.exports = webpackMerge(commonConfig, {
 // Add to plugins
 plugins: [
   new BaseHrefWebpackPlugin({ baseHref: '/firstTry/' }),
+  new CopyWebpackPlugin([
+    { from: './src/.nojekyll', to: '' },
+    { from: './src/.htaccess', to: '' }
+    ]),
   new HtmlWebpackPlugin({
     "template": "./src/index.html",
     "filename": "./404.html",
